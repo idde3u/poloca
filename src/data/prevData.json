@@ -1,0 +1,25 @@
+{
+    "img": "Иванов Дима",
+    "email": "check@mail.ru",
+    "password": "1",
+    "name": "Иванов Дима",
+    "isHere": false,
+    "spec": "Web-дизайнер",
+    "desc": "Do you think you're better every day? No, I just think I'm two steps nearer to my grave",
+    "subs": 0,
+    "subbs": 0,
+    "phone": "89001234567",
+    "brth": "22.02.2003",
+    "city": "Санкт-Петербург",
+    "skills": ["UX/UI", "Adobe Photoshop", "Adobe Illustrator", "Corel Draw", "Blender", "Material Design"],
+    "works": {
+        "company":"Skilla",
+        "date": "03.2024-настоящее время",
+        "desc": "В основном занимаюсь дизайном полиграфии, а также работаю с фотографией и дизайном сайтов"
+    },
+    "edu": {
+        "company":"СПбГУТ",
+        "date": "03.2024-настоящее время",
+        "desc": "Обучаюсь основам веб, графического и ux/ui дизайна. Многое узнал о программировании"
+    }
+}

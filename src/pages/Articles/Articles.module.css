@@ -1,0 +1,149 @@
+a{
+    text-decoration: none;
+}
+
+.container{
+    width: 1488px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.cards_list{
+    display: flex;
+    flex-direction: column;
+    margin-right: 32px;
+}
+
+.articles__card{
+    margin-bottom: 32px;
+}
+
+.filters{
+    width: 272px;
+    background-color: #fff;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    position: sticky;
+    top: 32px;
+    margin-right: 32px;
+    max-height: 460px;
+}
+
+input[type="checkbox"]{
+    appearance: none;
+    -webkit-appearance: none;
+    height: 24px;
+    width: 24px;
+    background-color: #F2F2F2;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    margin-right: 12px;
+}
+
+label{
+    color:  #050505;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+input[type="checkbox"]::after{
+    content: "";
+    height: 20px;
+    width: 20px;
+    background-color: #CC0A50;
+    border-radius: 2px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    display: none;
+}
+
+input[type="checkbox"]:hover{
+    background-color: #E6E6E6;
+}
+
+input[type="checkbox"]:checked::after{
+    display: inline-block;
+}
+
+.checkbox{
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.filters__category_name{
+    color: #656566;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+    margin-bottom: 16px;
+}
+
+.filters__name{
+    color: #050505;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 120%;
+    margin-bottom: 24px;
+}
+
+.checkbox__list{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.search__input{
+    width: 728px;
+    height: 62px;
+    border: 0;
+    border-radius: 16px;
+    margin-bottom: 32px;
+    padding: 20px;
+    color: #050505;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.button__secondary{
+    width: 424px;
+    height: 62px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 0;
+    border-radius: 16px;
+    background-image: url(./arrow-right.svg);
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    color:  #050505;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 100%;
+    margin-bottom: 32px;
+    cursor: pointer;
+}
+
+.button__main{
+    width: 424px;
+    height: 62px;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #CC0A50;
+    border: 0;
+    border-radius: 16px;
+    color:  #fff;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 100%;
+    cursor: pointer;
+}
