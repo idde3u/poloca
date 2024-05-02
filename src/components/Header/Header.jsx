@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import data from '../../data/yourProfile.json'
 import prevData from "../../data/prevData.json"
 import { useState, useEffect } from "react";
-import logo from "../../../public/img/logo.png"
+import logo from "./logo.png"
 
 const MyForm = ({onClose}) => {
     const [input1, setInput1] = useState('');
