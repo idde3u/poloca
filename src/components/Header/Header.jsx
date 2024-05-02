@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import data from '../../data/yourProfile.json'
 import prevData from "../../data/prevData.json"
 import { useState, useEffect } from "react";
+import logo from "../../../public/img/logo.png"
 
 const MyForm = ({onClose}) => {
     const [input1, setInput1] = useState('');
@@ -106,12 +107,12 @@ export default function Header(){
             <div className={styles.header__content}>
                 <div className={styles.header__left}>
                     <div className={styles.header__container_logo}>
-                        <Link to='/'>
-                            <img src="./img/logo.png" alt="" />
+                        <Link to='/poloca'>
+                            <img src={logo} alt="" />
                         </Link>
                     </div>
                     <ul className={styles.header__nav}>
-                        <Link to='/' className={styles.header__link}>Статьи</Link>
+                        <Link to='/poloca' className={styles.header__link}>Статьи</Link>
                         <Link to='/work' className={styles.header__link}>Работа</Link>
                         <Link to='/courses' className={styles.header__link}>Курсы</Link>
                         <Link to={`/chat/${0}`} className={styles.header__link}>Чат</Link>

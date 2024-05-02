@@ -25,7 +25,7 @@ import Chat from "../pages/Chat/Chat";
 
 const routesConfig = [
     {
-        path: '/',
+        path: '/poloca',
         exact: true,
         element: Articles
     },
