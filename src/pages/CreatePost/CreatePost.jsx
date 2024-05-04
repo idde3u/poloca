@@ -35,7 +35,7 @@ export default function CreatePost() {
 
     const handleClick = () => {
         localStorage.setItem('myArticle', JSON.stringify(formData))
-        nav("/");
+        nav("/poloca");
     }
     return (
         <div className={styles.container}>

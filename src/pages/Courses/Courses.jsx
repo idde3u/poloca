@@ -52,7 +52,7 @@ export default function Courses() {
     const articlesList = filteredArticles.map(info => {
         return (
             <div className={styles.course__card} key={info.id}>
-                <Link to={`/courses/${info.id}`}>
+                <Link to={`/poloca/courses/${info.id}`}>
                     <CourseCard {...info} />
                 </Link>
             </div>
@@ -60,7 +60,7 @@ export default function Courses() {
     });
 
     function handleClick(){
-        nav("/createcourse");
+        nav("/poloca/createcourse");
     }
 
     function handleAlert(){
@@ -124,8 +124,8 @@ export default function Courses() {
                 {articlesList}
             </div>
             <div className={styles.buttonsList}>
-                <Link to='/mycourses'><button className={styles.button__secondary}>Мои курсы</button></Link>
-                <Link to='/repcourses'><button className={styles.button__secondary}>Изучаемые курсы</button></Link>
+                <Link to='/poloca/mycourses'><button className={styles.button__secondary}>Мои курсы</button></Link>
+                <Link to='/poloca/repcourses'><button className={styles.button__secondary}>Изучаемые курсы</button></Link>
                 <button className={styles.button__main} onClick={pre.isHere? handleClick : handleAlert}>Создать курс</button>
             </div>
         </div>

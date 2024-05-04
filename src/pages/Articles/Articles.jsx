@@ -91,7 +91,7 @@ export default function Articles(){
 
     const articlesList = filteredArticles.map(info=>{
         return (
-            <Link to={`/${info.id}`}>
+            <Link to={`/poloca/${info.id}`}>
                 <div className={styles.articles__card} key={info.id}>
                     <Post {...info} />
                 </div>
@@ -102,7 +102,7 @@ export default function Articles(){
     const per = JSON.parse(localStorage.getItem("prevPerson"))
 
     function handleClick(){
-        nav("/createpost");
+        nav("/poloca/createpost");
     }
 
     function handleAlert(){
@@ -149,7 +149,7 @@ export default function Articles(){
                 {articlesList}
             </div>
             <div>
-                <Link to='/my_posts'><button className={styles.button__secondary}>Мои статьи</button></Link>
+                <Link to='/poloca/my_posts'><button className={styles.button__secondary}>Мои статьи</button></Link>
                 <button className={styles.button__main} onClick={per.isHere? handleClick : handleAlert}>Создать статью</button>
             </div>
         </div>

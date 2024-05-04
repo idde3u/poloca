@@ -1,18 +1,43 @@
 import React, { useState } from 'react';
 import styles from "./ChatBot.module.css";
 import { useParams } from 'react-router';
+import noavatar from "./Ссылка на изображение.png"
+import ava1 from "./Мачуговский Александр.png"
+import ava2 from "./Смирнов Андрей.png"
+import ava3 from "./Иванова Елена.png"
+import ava4 from "./Петров Михаил.png"
+import ava5 from "./Соколов Денис.png"
+
 
 function ChatBot() {
     const person = JSON.parse(localStorage.getItem("personData"))
     const user = JSON.parse(localStorage.getItem("prevPerson"))
     const params = useParams();
     const id = Number(params.id)
-    let avatar= ""
+    let avatar=noavatar;
+    switch(id){
+      case 1 :
+        avatar=ava1
+        break;
+      case 2 :
+        avatar=ava2
+        break;
+      case 3 :
+        avatar=ava3
+        break;
+      case 4 :
+        avatar=ava4
+        break;
+      case 5 :
+        avatar=ava5
+        break;
+        default:
+        avatar=noavatar
+    }
     let name = ""
 
     const personInfo = person.map(info =>{
         if (info.id === Number(params.id)){
-            avatar = info.avatar
             name = info.name
         }
     })
@@ -73,7 +98,7 @@ function ChatBot() {
                 return(
                     <div className={styles.message__user}>
                         <p className={styles.message__user__text}>{message.text}</p>
-                        <img src={user.img === "Ссылка на изображение"? `../img/${user.img}.png` : user.img} alt="" className={styles.message__user__ava}/>
+                        <img src={user.img === "Ссылка на изображение"? noavatar : user.img} alt="" className={styles.message__user__ava}/>
                     </div>
                 )
             } else if (message.sender == "bot"){

@@ -7,12 +7,37 @@ import personData from "../../data/personData.json";
 import Post from "../../components/Post/Post";
 import CourseCard from "../../components/CourseCard/CourseCard";
 import VacancyCard from "../../components/VacancyCard/VacancyCard";
+import noavatar from "./Ссылка на изображение.png"
+import ava1 from "./Мачуговский Александр.png"
+import ava2 from "./Смирнов Андрей.png"
+import ava3 from "./Иванова Елена.png"
+import ava4 from "./Петров Михаил.png"
+import ava5 from "./Соколов Денис.png"
 
 export default function PersonPage(){
     const url = useParams();
     const hist = useNavigate();
     const id = Number(url.id);
-    let ava = "";
+    let avatar=noavatar;
+    switch(id){
+      case 1 :
+        avatar=ava1
+        break;
+      case 2 :
+        avatar=ava2
+        break;
+      case 3 :
+        avatar=ava3
+        break;
+      case 4 :
+        avatar=ava4
+        break;
+      case 5 :
+        avatar=ava5
+        break;
+        default:
+        avatar=noavatar
+    }
     let name = "";  
 
     const [candidates, setCandidates] = useState(() => {
@@ -48,7 +73,7 @@ export default function PersonPage(){
           return (
             <div key={per.name} className={styles.person}>
                 <div className={styles.person__header}>
-                    <img src={per.avatar} alt="" className={styles.person__avatar} />
+                    <img src={avatar} alt="" className={styles.person__avatar} />
                     <div className={styles.person__info}>
                         <h2 className={styles.person__name}>{per.name}</h2>
                         <p className={styles.person__spec}>{per.spec}</p>
@@ -66,7 +91,7 @@ export default function PersonPage(){
                             <button className={per.isSubscribed ? styles.sub__disabled : styles.sub__active} onClick={() => handleSubscribe(per.name)}>
                                 {per.isSubscribed ? "Отписаться" : "Подписаться"}
                             </button>
-                            <Link to={`/chat/${per.id}`}>
+                            <Link to={`/poloca/chat/${per.id}`}>
                                 <button className={styles.btn__chat}></button>
                             </Link>
                         </div>
@@ -83,7 +108,7 @@ export default function PersonPage(){
         if (info.author===name){
             counter+=1;
             return(
-                <Link to={`/work/${info.id}`}>
+                <Link to={`/poloca/work/${info.id}`}>
                     <div className={styles.card}>
                         <VacancyCard {...info} />
                     </div>
@@ -100,7 +125,7 @@ export default function PersonPage(){
         if (info.author===name){
             counter+=1;
             return(
-                <Link to={`/courses/${info.id}`}>
+                <Link to={`/poloca/courses/${info.id}`}>
                     <div className={styles.card}>
                         <CourseCard {...info} />
                     </div>
@@ -117,7 +142,7 @@ export default function PersonPage(){
             if (info.author===name){
                 counter+=1;
                 return(
-                    <Link to={`/posts/${info.id}`}>
+                    <Link to={`/poloca/${info.id}`}>
                         <div className={styles.card}>
                             <Post {...info} />
                         </div>

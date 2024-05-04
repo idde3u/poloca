@@ -124,7 +124,7 @@ export default function Vacancies(){
     const articlesList = filteredArticles.map(info => {
         return (
             <div className={styles.vacancy__card} key={info.id}>
-                <Link to={`/work/${info.id}`}>
+                <Link to={`/poloca/work/${info.id}`}>
                     <VacancyCard {...info} />
                 </Link>
             </div>
@@ -199,8 +199,8 @@ export default function Vacancies(){
                 {articlesList}
             </div>
             <div className={styles.buttonsList}>
-                <Link to='/my_vacancies'><button className={styles.button__secondary}>Мои вакансии</button></Link>
-                <Link to='/my_replies'><button className={styles.button__secondary}>Мои отклики</button></Link>
+                <Link to='/poloca/my_vacancies'><button className={styles.button__secondary}>Мои вакансии</button></Link>
+                <Link to='/poloca/my_replies'><button className={styles.button__secondary}>Мои отклики</button></Link>
                 <button className={styles.button__main} onClick={per.isHere? openModal : alertModal}>Создать вакансию</button>
                 {isModalOpen && <CreateVacancyModal onClose={closeModal} />}
             </div>

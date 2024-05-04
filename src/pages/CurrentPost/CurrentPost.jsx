@@ -6,6 +6,20 @@ import personData from "../../data/personData.json"
 import styles from "./CurrentPost.module.css";
 import { Link } from "react-router-dom";
 import commentsData from "../../data/comments.json"
+import noavatar from "./Ссылка на изображение.png"
+import ava1 from "./Мачуговский Александр.png"
+import ava2 from "./Смирнов Андрей.png"
+import ava3 from "./Иванова Елена.png"
+import ava4 from "./Петров Михаил.png"
+import ava5 from "./Соколов Денис.png"
+import follower from "./follower.svg"
+import prog from "./Программирование.svg"
+import des from "./Дизайн.svg"
+import car from "./Карьера.svg"
+import ls from "./Личное.svg"
+import heartact from "./heart-active.svg"
+import heartdes from "./like-inactive.svg"
+import comment from "./comment.svg"
 
 
 export default function CurrentPost() {
@@ -60,8 +74,43 @@ export default function CurrentPost() {
     }, [commentsCount]);
 
     const postCard = articles.map(info=>{
-        const topikName = '../img/' + info.topic+'.svg'
-        const authorName = '../img/' + info.author + '.png'
+        let topicpic = noavatar;
+        switch (info.topic){
+            case "Программирование":
+                topicpic=prog;
+                break;
+                case "Дизайн":
+                topicpic=des;
+                break;
+                case "Карьера":
+                topicpic=car;
+                break;
+                case "Личное":
+                topicpic=ls;
+                break;
+                default:
+                    topicpic=noavatar;
+        }
+        let avatar=noavatar;
+        switch(info.author){
+        case "Мачуговский Александр" :
+            avatar=ava1
+            break;
+        case "Смирнов Андрей" :
+            avatar=ava2
+            break;
+        case "Иванова Елена" :
+            avatar=ava3
+            break;
+        case "Петров Михаил" :
+            avatar=ava4
+            break;
+        case "Соколов Денис" :
+            avatar=ava5
+            break;
+            default:
+            avatar=noavatar
+        }
         if (info.id === id){
             name = info.author
             return(
@@ -69,11 +118,11 @@ export default function CurrentPost() {
                 <div className={styles.post__info}>
                     <div className={styles.post__links}>
                         <div className={styles.post__topik}>
-                            <img src={topikName} alt="" className={styles.post__icon} />
+                            <img src={topicpic} alt="" className={styles.post__icon} />
                             <p className={styles.post__text}>{info.topic}</p>
                         </div>
                         <div className={styles.post__author}>
-                            <img src={authorName} alt="" className={styles.post__avatar} />
+                            <img src={avatar} alt="" className={styles.post__avatar} />
                             <p className={styles.post__text}>{info.author}</p>
                         </div>
                     </div>
@@ -83,11 +132,11 @@ export default function CurrentPost() {
                 <MDEditor.Markdown source={info.text}/>
                 <div className={styles.post__bottom}>               
                 <button className={styles.post__like_button} onClick={handleClick}>
-                    <img className={styles.post__like_icon} src={info.isLiked? "../img/heart-active.svg" : "../img/like-inactive.svg"} alt="" />
+                    <img className={styles.post__like_icon} src={info.isLiked? heartact : heartdes} alt="" />
                     <span className={styles.post__like_text}>{info.isLiked? info.likes+1 : info.likes}</span>
                 </button>
                 <div className={styles.post__comment}>
-                    <img className={styles.post__comment_icon} src="../img/comment.svg" alt="" />
+                    <img className={styles.post__comment_icon} src={comment} alt="" />
                     <span className={styles.post__like_text}>{commentsCount}</span>
                 </div>
             </div>
@@ -107,12 +156,32 @@ export default function CurrentPost() {
       };
 
     const personCard = candidates.map((per) => {
+        let avatar=noavatar;
+        switch(per.name){
+        case "Мачуговский Александр" :
+            avatar=ava1
+            break;
+        case "Смирнов Андрей" :
+            avatar=ava2
+            break;
+        case "Иванова Елена" :
+            avatar=ava3
+            break;
+        case "Петров Михаил" :
+            avatar=ava4
+            break;
+        case "Соколов Денис" :
+            avatar=ava5
+            break;
+            default:
+            avatar=noavatar
+        }
         if (per.name === name) {
           return (
             <div key={per.name} className={styles.person}>
-              <Link to={`/person/${per.id}`}>
+              <Link to={`/poloca/person/${per.id}`}>
                 <div className={styles.person__header}>
-                  <img src={per.avatar} alt="" className={styles.person__avatar} />
+                  <img src={avatar} alt="" className={styles.person__avatar} />
                   <div className={styles.person__info}>
                     <h2 className={styles.person__name}>{per.name}</h2>
                     <p className={styles.person__spec}>{per.spec}</p>
@@ -142,12 +211,31 @@ export default function CurrentPost() {
     console.log(pre)
 
     const commentsList = comments.map(info=>{
-        const authorName = '../img/' + info.author + '.png'
+        let avatar=noavatar;
+        switch(info.author){
+        case "Мачуговский Александр" :
+            avatar=ava1
+            break;
+        case "Смирнов Андрей" :
+            avatar=ava2
+            break;
+        case "Иванова Елена" :
+            avatar=ava3
+            break;
+        case "Петров Михаил" :
+            avatar=ava4
+            break;
+        case "Соколов Денис" :
+            avatar=ava5
+            break;
+            default:
+            avatar=noavatar
+        }
         if (info.id == id){
             return(
                 <div className={styles.comment__container}>
                     <div className={styles.comment__desc}>
-                        <img src={authorName} alt="" className={styles.comment__img} />
+                        <img src={avatar} alt="" className={styles.comment__img} />
                         <h3 className={styles.comment__header}>{info.author}</h3>
                     </div>
                     <p className={styles.comment__text}>{info.text}</p>

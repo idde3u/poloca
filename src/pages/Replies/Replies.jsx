@@ -124,7 +124,7 @@ export default function Replies(){
         if (info.isApplied){
             return (
             <div className={styles.vacancy__card} key={info.id}>
-                <Link to={`/work/${info.id}`}>
+                <Link to={`/poloca/work/${info.id}`}>
                     <ReplyCard {...info} />
                 </Link>
             </div>
@@ -205,8 +205,8 @@ export default function Replies(){
                 {pre.isHere? articlesList : noregAlert}
             </div>
             <div className={styles.buttonsList}>
-                <Link to='/work'><button className={styles.button__secondary}>Все вакансии</button></Link>
-                <Link to='/my_vacancies'><button className={styles.button__secondary}>Мои вакансии</button></Link>
+                <Link to='/poloca/work'><button className={styles.button__secondary}>Все вакансии</button></Link>
+                <Link to='/poloca/my_vacancies'><button className={styles.button__secondary}>Мои вакансии</button></Link>
                 <button className={styles.button__main} onClick={pre.isHere? openModal : openAlert}>Создать вакансию</button>
                 {isModalOpen && <CreateVacancyModal onClose={closeModal} />}
             </div>

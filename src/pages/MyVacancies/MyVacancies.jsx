@@ -131,8 +131,8 @@ export default function MyVacancies(){
             <div className={styles.container}>
                     {pre.isHere? infobox : noregAlert}
                 <div>
-                    <Link to='/work'><button className={styles.button__secondary}>Все вакансии</button></Link>
-                    <Link to='/my_replies'><button className={styles.button__secondary}>Мои отклики</button></Link>
+                    <Link to='/poloca/work'><button className={styles.button__secondary}>Все вакансии</button></Link>
+                    <Link to='/poloca/my_replies'><button className={styles.button__secondary}>Мои отклики</button></Link>
                     <button className={styles.button__main} onClick={pre.isHere? openModal : handleAlert}>Создать вакансию</button>
                     {isModalOpen && <CreateVacancyModal onClose={closeModal} />}
                 </div>
@@ -143,8 +143,8 @@ export default function MyVacancies(){
                 <div className={styles.container}>
                         {pre.isHere? card : noregAlert}
                     <div>
-                        <Link to='/work'><button className={styles.button__secondary}>Все вакансии</button></Link>
-                        <Link to='/my_replies'><button className={styles.button__secondary}>Мои отклики</button></Link>
+                        <Link to='/poloca/work'><button className={styles.button__secondary}>Все вакансии</button></Link>
+                        <Link to='/poloca/my_replies'><button className={styles.button__secondary}>Мои отклики</button></Link>
                         <button className={styles.button__main} onClick={pre.isHere? openModal : handleAlert}>Создать вакансию</button>
                         {isModalOpen && <CreateVacancyModal onClose={closeModal} />}
                     </div>

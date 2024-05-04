@@ -41,7 +41,7 @@ function Edition() {
     localStorage.setItem('prevPerson', JSON.stringify(formData));
     // Здесь можно добавить дополнительные действия, например, отправку данных на сервер
     // После сохранения данных можно перенаправить пользователя на другую страницу
-    nav("/myperson")
+    nav("/poloca/myperson")
     window.location.reload()
   };
 

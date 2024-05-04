@@ -21,7 +21,7 @@ function LessonPage() {
 
   return (
     <div className={styles.container}>
-        <Link to={`/courses/${courseId}`}>
+        <Link to={`/poloca/courses/${courseId}`}>
             <button className={styles.vac__goBack}></button>
         </Link>
         <div className={styles.lesson__container}>

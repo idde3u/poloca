@@ -6,17 +6,19 @@ import styles from "./ProfilePage.module.css";
 import Post from "../../components/Post/Post";
 import CourseCard from "../../components/CourseCard/CourseCard";
 import VacancyCard from "../../components/VacancyCard/VacancyCard";
+import noavatar from "./Ссылка на изображение.png"
+import calendar from "./calendar.svg"
+import email from "./email.svg"
+import phone from "./phone.svg"
+import pin from "./pin.svg"
 
 export default function ProfilePage(){
     const url = useParams();
     const hist = useNavigate();
     const id = Number(url.id);
-    
-    
-
-    const vacancies = JSON.parse(localStorage.getItem("vacancy"));
+    const vacancies = JSON.parse(localStorage.getItem("myVacancy1"));
     const courses = JSON.parse(localStorage.getItem("course"));
-    const posts = JSON.parse(localStorage.getItem("article"));
+    const posts = JSON.parse(localStorage.getItem("myArticle"));
     const per = JSON.parse(localStorage.getItem("prevPerson"))
     const persons = JSON.parse(localStorage.getItem("personData"))
 
@@ -31,7 +33,6 @@ export default function ProfilePage(){
     const handleTabChange = (tab) => {
         setActiveTab(tab);
     }; 
-    let ava = per.img!="Ссылка на изображение"? per.img : "../img/"+per.img+".png";
 
     const skillsList = per.skills.map(info=>{
         return(
@@ -42,7 +43,7 @@ export default function ProfilePage(){
     const goout = () => {
         per.isHere = false;
         localStorage.setItem("prevPerson", JSON.stringify(per));
-        hist("/")
+        hist("/poloca")
         window.location.reload()
       };
 
@@ -69,7 +70,7 @@ export default function ProfilePage(){
     const personCard = 
             <div className={styles.person}>
                 <div className={styles.person__header}>
-                    <img src={ava} alt="" className={styles.person__avatar} />
+                    <img src={per.img!=="Ссылка на изображение"? per.img : noavatar} alt="" className={styles.person__avatar} />
                     <div className={styles.person__info}>
                         <h2 className={styles.person__name}>{per.name}</h2>
                         <p className={styles.person__spec}>{per.spec}</p>
@@ -84,7 +85,7 @@ export default function ProfilePage(){
                             </div>
                         </div>
                         <div className={styles.btn__list}>
-                            <Link to="/edition">
+                            <Link to="/poloca/edition">
                                 <button className={styles.sub__active}>
                                     Редактировать профиль
                                 </button>
@@ -97,7 +98,7 @@ export default function ProfilePage(){
             </div>
 
       let vacanciesList = vacancies!=null?
-                <Link to="my_vacancies/1">
+                <Link to="/poloca/my_vacancies/1">
                     <div className={styles.card}>
                         <VacancyCard {...vacancies} />
                     </div>
@@ -107,7 +108,7 @@ export default function ProfilePage(){
         vacanciesList= <div className={styles.alert}><p className={styles.alert__text}>У вас отсутствуют вакансии</p></div>
       }
       let coursesList = courses!=null?
-                <Link to="/mycourses/1">
+                <Link to="/poloca/mycourses/1">
                     <div className={styles.card}>
                         <CourseCard {...courses} />
                     </div>
@@ -117,7 +118,7 @@ export default function ProfilePage(){
         coursesList= <div className={styles.alert}><p className={styles.alert__text}>У вас отсутствуют курсы</p></div>
       }
         let postsList = posts!=null?
-                    <Link to="/myposts/1">
+                    <Link to="/poloca/mypost">
                         <div className={styles.card}>
                             <Post {...posts} />
                         </div>
@@ -148,19 +149,19 @@ export default function ProfilePage(){
             <div className={styles.prof__container}>
                 <div className={styles.contacts}>
                     <div className={styles.contacts__row}>
-                        <img src="../img/email.svg" alt="" className={styles.contacts__icon}/>
+                        <img src={email} alt="" className={styles.contacts__icon}/>
                         <p className={styles.contacts__desc}>{per.email}</p>
                     </div>
                     <div className={styles.contacts__row}>
-                        <img src="../img/phone.svg" alt="" className={styles.contacts__icon}/>
+                        <img src={phone} alt="" className={styles.contacts__icon}/>
                         <p className={styles.contacts__desc}>{per.phone}</p>
                     </div>
                     <div className={styles.contacts__row}>
-                        <img src="../img/calendar.svg" alt="" className={styles.contacts__icon}/>
+                        <img src={calendar} alt="" className={styles.contacts__icon}/>
                         <p className={styles.contacts__desc}>{per.brth}</p>
                     </div>
                     <div className={styles.contacts__row}>
-                        <img src="../img/pin.svg" alt="" className={styles.contacts__icon}/>
+                        <img src={pin} alt="" className={styles.contacts__icon}/>
                         <p className={styles.contacts__desc}>{per.city}</p>
                     </div>
                 </div>

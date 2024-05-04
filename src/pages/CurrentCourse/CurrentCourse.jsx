@@ -4,12 +4,17 @@ import personData from "../../data/personData.json";
 import styles from "./CurrentCourse.module.css";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import lessonsData from "../../data/lessonsData.json"
+import noavatar from "./Ссылка на изображение.png"
+import ava1 from "./Мачуговский Александр.png"
+import ava2 from "./Смирнов Андрей.png"
+import ava3 from "./Иванова Елена.png"
+import ava4 from "./Петров Михаил.png"
+import ava5 from "./Соколов Денис.png"
 
 export default function CurrentCourse() {
   const params = useParams();
   const id = Number(params.id);
   let name = "";
-  let ava = "";
   const nav = useNavigate();
 
   // Загрузка данных о вакансиях и кандидатах из localStorage или использование начальных данных
@@ -56,7 +61,7 @@ export default function CurrentCourse() {
     if (ls.id==id){
         count+=1;
         return(
-            <Link to={`/courses/${id}/${ls.idd}`}>
+            <Link to={`/poloca/courses/${id}/${ls.idd}`}>
                 <button className={styles.lessons__link} onClick={handleApply}>{count + ". " + ls.name}</button>
             </Link>
         )
@@ -102,15 +107,34 @@ export default function CurrentCourse() {
     }
     return null;
   });
-  
+  let avatar=noavatar;
+  switch(name){
+    case "Мачуговский Александр" :
+      avatar=ava1
+      break;
+    case "Смирнов Андрей" :
+      avatar=ava2
+      break;
+    case "Иванова Елена" :
+      avatar=ava3
+      break;
+    case "Петров Михаил" :
+      avatar=ava4
+      break;
+    case "Соколов Денис" :
+      avatar=ava5
+      break;
+      default:
+      avatar=noavatar
+  }
 
   const personCard = candidates.map((per) => {
     if (per.name === name) {
       return (
         <div key={per.name} className={styles.person}>
-          <Link to={`/person/${per.id}`}>
+          <Link to={`/poloca/person/${per.id}`}>
             <div className={styles.person__header}>
-            <img src={per.avatar} alt="" className={styles.person__avatar} />
+            <img src={avatar} alt="" className={styles.person__avatar} />
             <div className={styles.person__info}>
               <h2 className={styles.person__name}>{per.name}</h2>
               <p className={styles.person__spec}>{per.spec}</p>

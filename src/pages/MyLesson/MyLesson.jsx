@@ -23,7 +23,7 @@ function MyLesson() {
 
   return (
     <div className={styles.container}>
-        <Link to={`/mycourses/1`}>
+        <Link to={`/poloca/mycourses/1`}>
             <button className={styles.vac__goBack}></button>
         </Link>
         <div className={styles.lesson__container}>

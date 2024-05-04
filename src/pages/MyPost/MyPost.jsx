@@ -5,6 +5,15 @@ import { useParams, useNavigate } from "react-router";
 import styles from "../CurrentPost/CurrentPost.module.css";
 import { Link } from "react-router-dom";
 import commentsData from "../../data/comments.json"
+import noavatar from "./Ссылка на изображение.png"
+import follower from "./follower.svg"
+import prog from "./Программирование.svg"
+import des from "./Дизайн.svg"
+import car from "./Карьера.svg"
+import ls from "./Личное.svg"
+import heartact from "./heart-active.svg"
+import heartdes from "./like-inactive.svg"
+import comment from "./comment.svg"
 
 
 export default function CurrentPost() {
@@ -13,6 +22,7 @@ export default function CurrentPost() {
     const id = Number(par.id)
 
     const myArticle = JSON.parse(localStorage.getItem("myArticle"));
+    const prevPerson = JSON.parse(localStorage.getItem("prevPerson"));
     
     function handleClick() {
         myArticle.isLiked = !myArticle.isLiked;
@@ -25,7 +35,7 @@ export default function CurrentPost() {
         setCommentsCount(()=>{
             let count = 0;
             comments.map(info=>{
-            if (info.id===id){
+            if (info.id===myArticle.id){
                 count = count+1;
             }
         })
@@ -34,19 +44,34 @@ export default function CurrentPost() {
         )})
     }, [commentsCount]);
 
-      const topikName = '../img/' + myArticle.topic+'.svg'
-      const authorName = '../img/' + myArticle.author + '.png'
+    let topicpic = noavatar;
+    switch (myArticle.topic){
+        case "Программирование":
+            topicpic=prog;
+            break;
+            case "Дизайн":
+            topicpic=des;
+            break;
+            case "Карьера":
+            topicpic=car;
+            break;
+            case "Личное":
+            topicpic=ls;
+            break;
+            default:
+                topicpic=noavatar;
+    }
 
     const postCard = 
                 <div className={styles.post__container}>
                 <div className={styles.post__info}>
                     <div className={styles.post__links}>
                         <div className={styles.post__topik}>
-                            <img src={topikName} alt="" className={styles.post__icon} />
+                            <img src={topicpic} alt="" className={styles.post__icon} />
                             <p className={styles.post__text}>{myArticle.topic}</p>
                         </div>
                         <div className={styles.post__author}>
-                            <img src={authorName} alt="" className={styles.post__avatar} />
+                            <img src={prevPerson.img!=="Ссылка на изображение"? prevPerson.img : noavatar} alt="" className={styles.post__avatar} />
                             <p className={styles.post__text}>{myArticle.author}</p>
                         </div>
                     </div>
@@ -56,11 +81,11 @@ export default function CurrentPost() {
                 <MDEditor.Markdown source={myArticle.text}/>
                 <div className={styles.post__bottom}>               
                 <button className={styles.post__like_button} onClick={handleClick}>
-                    <img className={styles.post__like_icon} src={myArticle.isLiked? "../img/heart-active.svg" : "../img/like-inactive.svg"} alt="" />
+                    <img className={styles.post__like_icon} src={myArticle.isLiked? heartact : heartdes} alt="" />
                     <span className={styles.post__like_text}>{myArticle.isLiked? myArticle.likes+1 : myArticle.likes}</span>
                 </button>
                 <div className={styles.post__comment}>
-                    <img className={styles.post__comment_icon} src="../img/comment.svg" alt="" />
+                    <img className={styles.post__comment_icon} src={comment} alt="" />
                     <span className={styles.post__like_text}>{commentsCount}</span>
                 </div>
             </div>
@@ -75,15 +100,13 @@ export default function CurrentPost() {
     useEffect(() => {
         localStorage.setItem("comments", JSON.stringify(comments));
     }, [comments]);
-    const pre = JSON.parse(localStorage.getItem('prevPerson'));
 
     const commentsList = comments.map(info=>{
-        const authorName = '../img/' + info.author + '.png'
         if (info.id == myArticle.id){
             return(
                 <div className={styles.comment__container}>
                     <div className={styles.comment__desc}>
-                        <img src={authorName} alt="" className={styles.comment__img} />
+                        <img src={prevPerson.img!=="Ссылка на изображение"? prevPerson.img : noavatar} alt="" className={styles.comment__img} />
                         <h3 className={styles.comment__header}>{info.author}</h3>
                     </div>
                     <p className={styles.comment__text}>{info.text}</p>
@@ -93,12 +116,12 @@ export default function CurrentPost() {
       })
 
     const handleSubmit = () => {
-        if (pre.isHere){
+        if (prevPerson.isHere){
             if (commentText.trim() !== '') {
             const existingComments = JSON.parse(localStorage.getItem('comments')) || [];
             const newComment = {
-                id: id,
-                author: pre.name,
+                id: myArticle.id,
+                author: prevPerson.name,
                 text: commentText.trim()
             };
             const updatedComments = [...existingComments, newComment];
@@ -115,7 +138,7 @@ export default function CurrentPost() {
 
     const handleDelete = () =>{
         localStorage.removeItem("myArticle");
-        nav("/")
+        nav("/poloca")
     }
 
   return (

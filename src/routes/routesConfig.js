@@ -30,122 +30,122 @@ const routesConfig = [
         element: Articles
     },
     {
-        path: '/:id',
+        path: '/poloca/:id',
         exact: true,
         element: CurrentPost
     },
     {
-        path: '/work',
+        path: '/poloca/work',
         exact: true,
         element: Vacancies
     },
     {
-        path: 'my_vacancies',
+        path: '/poloca/my_vacancies',
         exact: true,
         element: MyVacancies
     },
     {
-        path: '/courses',
+        path: '/poloca/courses',
         exact: true,
         element: Courses
     },
     {
-        path: '/repcourses',
+        path: '/poloca/repcourses',
         exact: true,
         element: RepCourses
     },
     {
-        path: '/mycourses',
+        path: '/poloca/mycourses',
         exact: true,
         element: MyCourses
     },
     {
-        path: '/chat',
+        path: '/poloca/chat',
         exact: true,
         element: Articles
     },
     {
-        path: '/my_posts',
+        path: '/poloca/my_posts',
         exact: true,
         element: MyArticles
     },
     {
-        path: '/work/:id',
+        path: '/poloca/work/:id',
         exact: true,
         element: Vacancy
     },
     {
-        path: '/courses/:id',
+        path: '/poloca/courses/:id',
         exact: true,
         element: CurrentCourse
     },
     {
-        path: '/courses/:id/:idd',
+        path: '/poloca/courses/:id/:idd',
         exact: true,
         element: LessonPage
     },
     {
-        path: '/my_replies',
+        path: '/poloca/my_replies',
         exact: true,
         element: Replies
     },
     {
-        path: 'my_vacancies/1',
+        path: '/poloca/my_vacancies/1',
         exact: true,
         element: MyVacancy
     },
     {
-        path: '/createcourse',
+        path: '/poloca/createcourse',
         exact: true,
         element: CourseCreator
     },
     {
-        path: '/editcourse',
+        path: '/poloca/editcourse',
         exact: true,
         element: CourseEditor
     },
     {
-        path: '/mycourses/1',
+        path: '/poloca/mycourses/1',
         exact: true,
         element: MyCourse
     },
     {
-        path: '/mycourses/1/:id',
+        path: '/poloca/mycourses/1/:id',
         exact: true,
         element: MyLesson
     },
     {
-        path: '/person/:id',
+        path: '/poloca/person/:id',
         exact: true,
         element: PersonPage
     },
     {
-        path: '/myperson',
+        path: '/poloca/myperson',
         exact: true,
         element: ProfilePage
     },
     {
-        path: '/registration',
+        path: '/poloca/registration',
         exact: true,
         element: Registration
     },
     {
-        path: '/edition',
+        path: '/poloca/edition',
         exact: true,
         element: Edition
     },
     {
-        path: '/createpost',
+        path: '/poloca/createpost',
         exact: true,
         element: CreatePost
     },
     {
-        path: '/mypost',
+        path: '/poloca/mypost',
         exact: true,
         element: MyPost
     },
     {
-        path: '/chat/:id',
+        path: '/poloca/chat/:id',
         exact: true,
         element: Chat
     },

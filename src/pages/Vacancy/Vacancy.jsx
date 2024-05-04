@@ -3,6 +3,13 @@ import vacanciesData from "../../data/vacanciesData.json";
 import personData from "../../data/personData.json";
 import styles from "./Vacancy.module.css";
 import { Link, useNavigate } from "react-router-dom";
+import noavatar from "./Ссылка на изображение.png"
+import ava1 from "./Мачуговский Александр.png"
+import ava2 from "./Смирнов Андрей.png"
+import ava3 from "./Иванова Елена.png"
+import ava4 from "./Петров Михаил.png"
+import ava5 from "./Соколов Денис.png"
+import follower from "./follower.svg"
 
 export default function Vacancy() {
   const url = window.location.href.slice(-8);
@@ -10,7 +17,6 @@ export default function Vacancy() {
   let name = "";
   let spec = "";
   let nname = "";
-  let ava = "";
   const nav = useNavigate();
 
   // Загрузка данных о вакансиях и кандидатах из localStorage или использование начальных данных
@@ -76,11 +82,31 @@ export default function Vacancy() {
 
   const personCard = candidates.map((per) => {
     if (per.name === name) {
+      let avatar=noavatar;
+      switch(per.name){
+          case "Мачуговский Александр" :
+            avatar=ava1
+            break;
+          case "Смирнов Андрей" :
+            avatar=ava2
+            break;
+          case "Иванова Елена" :
+            avatar=ava3
+            break;
+          case "Петров Михаил" :
+            avatar=ava4
+            break;
+          case "Соколов Денис" :
+            avatar=ava5
+            break;
+            default:
+            avatar=noavatar
+        }
       return (
         <div key={per.name} className={styles.person}>
-          <Link to={`/person/${per.id}`}>
+          <Link to={`/poloca/person/${per.id}`}>
             <div className={styles.person__header}>
-              <img src={per.avatar} alt="" className={styles.person__avatar} />
+              <img src={avatar} alt="" className={styles.person__avatar} />
               <div className={styles.person__info}>
                 <h2 className={styles.person__name}>{per.name}</h2>
                 <p className={styles.person__spec}>{per.spec}</p>

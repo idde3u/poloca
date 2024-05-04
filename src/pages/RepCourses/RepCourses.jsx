@@ -30,7 +30,7 @@ export default function RepCourses() {
     }
 
     function handleClick(){
-        nav("/createcourse")
+        nav("/poloca/createcourse")
     }
 
     const coursesList = courses.map(info => {
@@ -38,7 +38,7 @@ export default function RepCourses() {
             cardsCount+=1;
             return (
                 <div className={styles.course__card} key={info.id}>
-                    <Link to={`/courses/${info.id}`}>
+                    <Link to={`/poloca/courses/${info.id}`}>
                         <CourseCard {...info} />
                     </Link>
                 </div>
@@ -63,8 +63,8 @@ export default function RepCourses() {
             <div className={styles.container}>
                 {per.isHere? nocard : noregAlert}
             <div className={styles.buttonsList}>
-                <Link to='/mycourses'><button className={styles.button__secondary}>Мои курсы</button></Link>
-                <Link to='/courses'><button className={styles.button__secondary}>Все курсы</button></Link>
+                <Link to='/poloca/mycourses'><button className={styles.button__secondary}>Мои курсы</button></Link>
+                <Link to='/poloca/courses'><button className={styles.button__secondary}>Все курсы</button></Link>
                 <button className={styles.button__main} onClick={per.isHere? handleClick : handleAlert}>Создать курс</button>
             </div>
             </div>
@@ -74,8 +74,8 @@ export default function RepCourses() {
             <div className={styles.container}>
                 {per.isHere? card : noregAlert}
                 <div className={styles.buttonsList}>
-                    <Link to='/mycourses'><button className={styles.button__secondary}>Мои курсы</button></Link>
-                    <Link to='/courses'><button className={styles.button__secondary}>Все курсы</button></Link>
+                    <Link to='/poloca/mycourses'><button className={styles.button__secondary}>Мои курсы</button></Link>
+                    <Link to='/poloca/courses'><button className={styles.button__secondary}>Все курсы</button></Link>
                     <button className={styles.button__main} onClick={per.isHere? handleClick : handleAlert}>Создать курс</button>
                 </div>
             </div>

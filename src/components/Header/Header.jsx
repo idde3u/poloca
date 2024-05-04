@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import data from '../../data/yourProfile.json'
 import prevData from "../../data/prevData.json"
 import { useState, useEffect } from "react";
-import logo from "./logo.png"
+import logo from "./logo.png";
+import noavatar from "./Ссылка на изображение.png";
+import login from "./login.png"
 
 const MyForm = ({onClose}) => {
     const [input1, setInput1] = useState('');
@@ -65,7 +67,7 @@ const MyForm = ({onClose}) => {
                 <div className={styles.split}>
                     <p className={styles.message}>{message}</p>
                     <button type="submit" className={styles.button__main}>Войти</button>
-                    <Link to="/registration">
+                    <Link to="/poloca/registration">
                         <button className={styles.button__text} onClick={HandleClose}>Или зарегистрироваться</button>
                     </Link>
                 </div>
@@ -113,16 +115,16 @@ export default function Header(){
                     </div>
                     <ul className={styles.header__nav}>
                         <Link to='/poloca' className={styles.header__link}>Статьи</Link>
-                        <Link to='/work' className={styles.header__link}>Работа</Link>
-                        <Link to='/courses' className={styles.header__link}>Курсы</Link>
-                        <Link to={`/chat/${0}`} className={styles.header__link}>Чат</Link>
+                        <Link to='/poloca/work' className={styles.header__link}>Работа</Link>
+                        <Link to='/poloca/courses' className={styles.header__link}>Курсы</Link>
+                        <Link to={`/poloca/chat/${0}`} className={styles.header__link}>Чат</Link>
                     </ul>
                 </div>
                 {prevPerson.isHere?
                     (
-                    <Link to="/myperson">
+                    <Link to="/poloca/myperson">
                         <div className={styles.header__profile}>
-                            <img className={styles.header__avatar} src={prevPerson.img!=="Ссылка на изображение"? prevPerson.img : "../img/"+prevPerson.img+".png"} alt=""/>
+                            <img className={styles.header__avatar} src={prevPerson.img!=="Ссылка на изображение"? prevPerson.img : noavatar} alt=""/>
                             <p className={styles.header__name}>{prevPerson.name}</p>
                         </div>
                         
@@ -130,7 +132,7 @@ export default function Header(){
                     ) :
                     (
                     <button className={styles.header__profile} onClick={openModal}>
-                        <img className={styles.header__avatar} src="../img/login.png" alt=""/>
+                        <img className={styles.header__avatar} src={login} alt=""/>
                         <p className={styles.header__name}>Регистрация</p>
                     </button>
                     )

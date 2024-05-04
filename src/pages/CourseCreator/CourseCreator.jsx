@@ -98,7 +98,7 @@ function CourseCreator() {
           <label>Доступ по подписке</label>
       </div>
       </div>
-      <Link to="/mycourses">
+      <Link to="/poloca/mycourses">
       <button onClick={handleSave} className={styles.button__main}>Сохранить курс</button>
       </Link>
       </div>

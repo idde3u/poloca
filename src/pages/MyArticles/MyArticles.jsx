@@ -15,7 +15,7 @@ export default function MyArticles(){
     const per = JSON.parse(localStorage.getItem("prevPerson"))
 
     function handleClick(){
-        nav("/createpost");
+        nav("/poloca/createpost");
     }
 
     function handleAlert(){
@@ -24,7 +24,7 @@ export default function MyArticles(){
 
     const card =
         <div className={styles.cards_list}>
-            <Link to='/mypost'>
+            <Link to='/poloca/mypost'>
                 <Post {...dataJS}/>
             </Link>
         </div>
@@ -46,7 +46,7 @@ export default function MyArticles(){
             <div className={styles.container}>
                 {per.isHere? nocard : noregAlert}
                 <div>
-                    <Link to='/'><button className={styles.button__secondary}>Все статьи</button></Link>
+                    <Link to='/poloca'><button className={styles.button__secondary}>Все статьи</button></Link>
                     <button className={styles.button__main} onClick={per.isHere? handleClick : handleAlert}>Создать статью</button>
                 </div>
             </div>
@@ -56,7 +56,7 @@ export default function MyArticles(){
             <div className={styles.container}>
                 {per.isHere? card: noregAlert}
                 <div>
-                    <Link to='/'><button className={styles.button__secondary}>Все статьи</button></Link>
+                    <Link to='/poloca'><button className={styles.button__secondary}>Все статьи</button></Link>
                     <button className={styles.button__main} onClick={per.isHere? handleClick : handleAlert}>Создать статью</button>
                 </div>
             </div>

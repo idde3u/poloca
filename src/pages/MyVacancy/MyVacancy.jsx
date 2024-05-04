@@ -18,7 +18,7 @@ export default function MyVacancy() {
     if (!dataJS) {
         return (
             <div className={styles.container}>
-                <Link to="/work">
+                <Link to="/poloca/work">
                     <button className={styles.vac__goBack}></button>
                 </Link>
                 <div className={styles.vac__container}>
@@ -29,7 +29,7 @@ export default function MyVacancy() {
 
     return (
         <div className={styles.container}>
-            <Link to="/work">
+            <Link to="/poloca/work">
                 <button className={styles.vac__goBack}></button>
             </Link>
             <div key={dataJS.id} className={styles.vac__container}>
