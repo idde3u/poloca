@@ -71,8 +71,10 @@ export default function Post(props){
     const nowDate = new Date();
     let dateName = '';
     const date = nowDate.getTime()-prevDate.getTime();
-    if (date<86400000){
-            dateName='сегодня'
+    if (date<0){
+        dateName=props.date;
+    } else if (date<86400000){
+        dateName='сегодня'
     } else if (date<172800000){
         dateName='вчера'
     } else if (date<604800000){
