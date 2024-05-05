@@ -1,6 +1,7 @@
 import React, { useTransition } from "react";
 import Post from "../../components/Post/Post";
 import articlesData from "../../data/articlesData.json";
+import prevPerson from "../../data/prevData.json"
 import styles from './Articles.module.css';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -99,7 +100,13 @@ export default function Articles(){
         )
     });
 
-    const per = JSON.parse(localStorage.getItem("prevPerson"))
+    const [per, setPer] = useState(() => {
+        const storedArticles = localStorage.getItem("prevPerson");
+        return storedArticles ? JSON.parse(storedArticles) : prevPerson;
+      });
+      useEffect(() => {
+        localStorage.setItem("prevPerson", JSON.stringify(per));
+      }, [per]);  
 
     function handleClick(){
         nav("/poloca/createpost");
