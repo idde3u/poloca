@@ -80,6 +80,12 @@ export default function Vacancy() {
     return null;
   });
 
+  const pre = JSON.parse(localStorage.getItem("prevPerson"))
+
+    function handleAlert(){
+        alert("Перед совершением действия авторизуйтесь в системе")
+    }
+
   const personCard = candidates.map((per) => {
     if (per.name === name) {
       let avatar=noavatar;
@@ -114,7 +120,7 @@ export default function Vacancy() {
             </div>
           </Link>
           <p className={styles.person__desc}>{per.desc}</p>
-          <button className={per.isSubscribed ? styles.sub__disabled : styles.sub__active} onClick={() => handleSubscribe(per.name)}>
+          <button className={per.isSubscribed ? styles.sub__disabled : styles.sub__active} onClick={pre.isHere? () => handleSubscribe(per.name) : handleAlert}>
             {per.isSubscribed ? "Отписаться" : "Подписаться"}
           </button>
         </div>
@@ -126,7 +132,7 @@ export default function Vacancy() {
   const replyButton = vacancies.map((info)=>{
     if (info.id===id){
         return(
-            <button onClick={handleApply} className={info.isApplied? styles.button__disabled : styles.button__active}>Откликнуться</button>
+            <button onClick={pre.isHere? handleApply : handleAlert} className={info.isApplied? styles.button__disabled : styles.button__active}>Откликнуться</button>
         )
     }
   })

@@ -60,7 +60,7 @@ input[type="checkbox"]::after{
     content: "";
     height: 20px;
     width: 20px;
-    background-color: #E56E00;
+    background-color: linear-gradient(89deg, #E56E00 0%, #CC336A 51.98%, #454AE5 100%);
     border-radius: 2px;
     position: absolute;
     top: 2px;

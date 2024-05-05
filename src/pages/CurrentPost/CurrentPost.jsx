@@ -73,6 +73,12 @@ export default function CurrentPost() {
         )})
     }, [commentsCount]);
 
+    const pre = JSON.parse(localStorage.getItem("prevPerson"))
+
+    function handleAlert(){
+        alert("Перед совершением действия авторизуйтесь в системе")
+    }
+
     const postCard = articles.map(info=>{
         let topicpic = noavatar;
         switch (info.topic){
@@ -131,7 +137,7 @@ export default function CurrentPost() {
                 <h2 className={styles.post__heading}>{info.name}</h2>
                 <MDEditor.Markdown source={info.text}/>
                 <div className={styles.post__bottom}>               
-                <button className={styles.post__like_button} onClick={handleClick}>
+                <button className={styles.post__like_button} onClick={pre.isHere? handleClick : handleAlert}>
                     <img className={styles.post__like_icon} src={info.isLiked? heartact : heartdes} alt="" />
                     <span className={styles.post__like_text}>{info.isLiked? info.likes+1 : info.likes}</span>
                 </button>
@@ -189,7 +195,7 @@ export default function CurrentPost() {
                 </div>
               </Link>
               <p className={styles.person__desc}>{per.desc}</p>
-              <button className={per.isSubscribed ? styles.sub__disabled : styles.sub__active} onClick={() => handleSubscribe(per.name)}>
+              <button className={per.isSubscribed ? styles.sub__disabled : styles.sub__active} onClick={pre.isHere? () => handleSubscribe(per.name) : handleAlert}>
                 {per.isSubscribed ? "Отписаться" : "Подписаться"}
               </button>
             </div>
@@ -207,8 +213,6 @@ export default function CurrentPost() {
     useEffect(() => {
         localStorage.setItem("comments", JSON.stringify(comments));
     }, [comments]);
-    const pre = JSON.parse(localStorage.getItem('prevPerson'));
-    console.log(pre)
 
     const commentsList = comments.map(info=>{
         let avatar=noavatar;

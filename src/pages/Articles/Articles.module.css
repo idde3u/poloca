@@ -54,7 +54,7 @@ input[type="checkbox"]::after{
     content: "";
     height: 20px;
     width: 20px;
-    background-color: #CC0A50;
+    background-color:  #CC336A ;
     border-radius: 2px;
     position: absolute;
     top: 2px;

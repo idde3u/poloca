@@ -9,7 +9,7 @@ function Registration() {
     const nav = useNavigate();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
-    img: "",
+    img: "Ссылка на изображение",
     email: "",
     password: "",
     name: "",
