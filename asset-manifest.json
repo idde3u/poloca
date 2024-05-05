@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/poloca/static/css/main.4db6e7a8.css",
+    "main.js": "/poloca/static/js/main.a9f8f3c9.js",
+    "static/media/Соколов Денис.png": "/poloca/static/media/Соколов Денис.6b50b1addbc84a3a0fc4.png",
+    "static/media/Смирнов Андрей.png": "/poloca/static/media/Смирнов Андрей.fbf7b0dc68bf8e5c332a.png",
+    "static/media/Иванова Елена.png": "/poloca/static/media/Иванова Елена.ad1d42380daed7d7ba5e.png",
+    "static/media/Петров Михаил.png": "/poloca/static/media/Петров Михаил.0ed4f789b0c5313c1e07.png",
+    "static/media/Мачуговский Александр.png": "/poloca/static/media/Мачуговский Александр.7d97c6fa46d19a342a85.png",
+    "static/media/phone.svg": "/poloca/static/media/phone.c3849e6ae2980261d4e7467ccd45a7aa.svg",
+    "static/media/follower.svg": "/poloca/static/media/follower.377c42e93fda88529906c79845c7abf0.svg",
+    "static/media/heart-active.svg": "/poloca/static/media/heart-active.47297548f2d8ae785f31498e6a24a112.svg",
+    "static/media/like-inactive.svg": "/poloca/static/media/like-inactive.34ddc2d17c1772fd5d9e3704ddb2eefd.svg",
+    "static/media/pin.svg": "/poloca/static/media/pin.cf3cae8168811816081873ab92e965b5.svg",
+    "static/media/edit.svg": "/poloca/static/media/edit.1eeb8424e24a1e992701.svg",
+    "index.html": "/poloca/index.html",
+    "static/media/Дизайн.svg": "/poloca/static/media/Дизайн.4e705e4edaa8ca48a7e72e748e402333.svg",
+    "static/media/Карьера.svg": "/poloca/static/media/Карьера.e8f19157acf542924b183d497ff39694.svg",
+    "static/media/calendar.svg": "/poloca/static/media/calendar.1d2947dacc86f4fa5be3d1fa996d2569.svg",
+    "static/media/comment.svg": "/poloca/static/media/comment.2f10447ee6cb5aeae3e775380b37bcc3.svg",
+    "static/media/Программирование.svg": "/poloca/static/media/Программирование.ced33f190162a4325ca276ea60922157.svg",
+    "static/media/email.svg": "/poloca/static/media/email.2e9f3578f7629e40ac0f71bab7d5b2fa.svg",
+    "static/media/plus.svg": "/poloca/static/media/plus.5f1da152bad2fbe6e016.svg",
+    "static/media/Личное.svg": "/poloca/static/media/Личное.b161b8bdffa6796ddb0be2f6b12ce025.svg",
+    "static/media/x.svg": "/poloca/static/media/x.ff19d2dfa4dc7b7401db.svg",
+    "static/media/arrow-left.svg": "/poloca/static/media/arrow-left.52a0331978ff63f74e25.svg",
+    "static/media/arrow-right.svg": "/poloca/static/media/arrow-right.6e4a90e6ccdea13d8d7c.svg",
+    "static/media/arrow-down.svg": "/poloca/static/media/arrow-down.3e840ec14328a3656f0d.svg",
+    "main.4db6e7a8.css.map": "/poloca/static/css/main.4db6e7a8.css.map",
+    "main.a9f8f3c9.js.map": "/poloca/static/js/main.a9f8f3c9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4db6e7a8.css",
+    "static/js/main.a9f8f3c9.js"
+  ]
+}
